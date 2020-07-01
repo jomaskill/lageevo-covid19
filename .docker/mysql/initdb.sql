@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS lageevo_covid;
+CREATE DATABASE IF NOT EXISTS lageevo_covid_test;
