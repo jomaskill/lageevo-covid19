@@ -6,18 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSamplesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('samples', function (Blueprint $table) {
             $table->id('id');
             $table->string('email');
             $table->date('sample_date');
-            $table->string('gal_requisition');
+            $table->string('gal_requisition')->nullabel;
             $table->string('name');
             $table->integer('age');
             $table->char('sex',1);
