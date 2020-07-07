@@ -75,10 +75,10 @@ class SampleController extends Controller
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string|max:255',
             'residential_city' => 'required|string|max:255',
-            'beginning_symptom_date' => 'required|in:echo implode(','.sample::BEGINNING_SYMPTON_DATE)',
+            'beginning_symptom_date' => 'required|in:'.$beginning_symptom_date = implode(",",sample::BEGINNING_SYMPTOM_DATE),
             'collection_sample_date' => 'required|date_format:Y-m-d',
-            'patient_status' => 'required|in:echo implode(','.sample::PATIENT_STATUS)',
-            'collect_method' => 'required|in:echo implode(','.sample::COLLECT_METHOD)',
+            'patient_status' => 'required|in:'.$patient_status = implode(",", sample::PATIENT_STATUS),
+            'collect_method' => 'required|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
         ];
     }
 
@@ -93,10 +93,10 @@ class SampleController extends Controller
             'birth_date' => 'sometimes|date_format:Y-m-d',
             'city' => 'sometimes|string|max:255',
             'residential_city' => 'sometimes|string|max:255',
-            'beginning_symptom_date' => 'sometimes',
+            'beginning_symptom_date' => 'sometimes|in:'.$beginning_symptom_date = implode(",",sample::BEGINNING_SYMPTOM_DATE),
             'collection_sample_date' => 'sometimes|date_format:Y-m-d',
-            'patient_status' => 'sometimes',
-            'collect_method' => 'sometimes',
+            'patient_status' => 'sometimes|in:'.$string = implode(",", sample::PATIENT_STATUS),
+            'collect_method' => 'sometimes|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
         ];
     }
 
