@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\LabSample;
 use Illuminate\Http\Request;
 
+
 class LabSampleController extends Controller
 {
     
@@ -49,10 +50,6 @@ class LabSampleController extends Controller
     
     public function update(Request $request, $id)
     {
-        // if($request['password']){
-        //     $request['password'] = bcrypt($request['password']);
-        // }
-        //nao tenho certeza se a rota irá passar a senha do usuario para esse controller
 
         $validatedData = $this->validate($request, $this->rulesUpdate());
 
@@ -79,18 +76,20 @@ class LabSampleController extends Controller
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string',
             'observations' => 'required|string',
-            'status' => 'required',
+            'status' => [
+                'required',
+                Rule::in(['extraction', 'pcr', 'analises', 'report']),
+            ]
         ];
     }
 
     protected function rulesUpdate()
     {
         return [
-            'name' => 'sometimes|string',
-            'birth_date' => 'sometimes|date_format:Y-m-d',
-            'city' => 'sometimes|string',
-            'observations' => 'sometimes|string',
-            'status' => 'sometimes',
+            'status' => [
+                'required',
+                Rule::in(['extraction', 'pcr', 'analises', 'report']),
+            ]
         ];
     }
 
