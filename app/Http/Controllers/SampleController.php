@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\sample;
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class SampleController extends Controller
@@ -11,7 +13,7 @@ class SampleController extends Controller
 
     public function index()
     {
-        return $this->model()::all();
+        return $this->model()::with('users')->get();
     }
 
 
@@ -66,12 +68,12 @@ class SampleController extends Controller
     protected function rulesStore()
     {
         return [
-            'email' => 'required',
+            'email' => 'required|email',
             'sample_date' => 'required|date_format:Y-m-d',
-            'gal_requisition' => 'nullabel',
+            'gal_requisition' => 'nullable',
             'name' => 'required|string|max:255',
-            'age' => 'required|numeric|min:0|max:150',
-            'sex' => 'required',
+            'age' => 'required|numeric|between:0,150',
+            'sex' => 'required|in:'.$sex = implode(",",sample::SEX),
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string|max:255',
             'residential_city' => 'required|string|max:255',
@@ -79,6 +81,7 @@ class SampleController extends Controller
             'collection_sample_date' => 'required|date_format:Y-m-d',
             'patient_status' => 'required|in:'.$patient_status = implode(",", sample::PATIENT_STATUS),
             'collect_method' => 'required|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
+            'user_id' => 'required|exists:users,id',
         ];
     }
 
@@ -88,8 +91,8 @@ class SampleController extends Controller
             'sample_date' => 'sometimes|date_format:Y-m-d',
             'gal_requisition' => 'sometimes',
             'name' => 'sometimes|string|max:255',
-            'age' => 'sometimes|numeric|min:0|max:150',
-            'sex' => 'sometimes',
+            'age' => 'sometimes|numeric|between:0,150',
+            'sex' => 'sometimes|in:'.$sex = implode(",",sample::SEX),
             'birth_date' => 'sometimes|date_format:Y-m-d',
             'city' => 'sometimes|string|max:255',
             'residential_city' => 'sometimes|string|max:255',
@@ -97,6 +100,7 @@ class SampleController extends Controller
             'collection_sample_date' => 'sometimes|date_format:Y-m-d',
             'patient_status' => 'sometimes|in:'.$string = implode(",", sample::PATIENT_STATUS),
             'collect_method' => 'sometimes|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
+            'user_id' => 'sometimes|exists:users,id',
         ];
     }
 
@@ -107,4 +111,5 @@ class SampleController extends Controller
 
         return $this->model()::where($keyName, $id)->firstOrFail();
     }
+
 }

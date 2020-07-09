@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return $this->model()::all();
+        return $this->model()::with('samples')->get();
     }
 
     public function create()
