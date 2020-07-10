@@ -1,6 +1,6 @@
 <?php
 
-use App\sample;
+use App\Sample;
 use Illuminate\Database\Seeder;
 
 class SampleSeeder extends Seeder

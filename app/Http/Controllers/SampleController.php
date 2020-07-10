@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\sample;
+use App\Sample;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +13,7 @@ class SampleController extends Controller
 
     public function index()
     {
-        return $this->model()::with('users')->get();
+        return $this->model()::all();
     }
 
 
@@ -34,7 +34,7 @@ class SampleController extends Controller
         return $this->findOrFail($id);
     }
 
-    public function edit(sample $sample)
+    public function edit(Sample $sample)
     {
         //
     }
@@ -62,7 +62,7 @@ class SampleController extends Controller
 
     protected function model()
     {
-        return sample::class;
+        return Sample::class;
     }
 
     protected function rulesStore()
@@ -73,35 +73,35 @@ class SampleController extends Controller
             'gal_requisition' => 'nullable',
             'name' => 'required|string|max:255',
             'age' => 'required|numeric|between:0,150',
-            'sex' => 'required|in:'.$sex = implode(",",sample::SEX),
+            'sex' => 'required|in:'.$sex = implode(",",Sample::SEX),
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string|max:255',
             'residential_city' => 'required|string|max:255',
-            'beginning_symptom_date' => 'required|in:'.$beginning_symptom_date = implode(",",sample::BEGINNING_SYMPTOM_DATE),
+            'beginning_symptom_date' => 'required|in:'.$beginning_symptom_date = implode(",",Sample::BEGINNING_SYMPTOM_DATE),
             'collection_sample_date' => 'required|date_format:Y-m-d',
-            'patient_status' => 'required|in:'.$patient_status = implode(",", sample::PATIENT_STATUS),
-            'collect_method' => 'required|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
+            'patient_status' => 'required|in:'.$patient_status = implode(",", Sample::PATIENT_STATUS),
+            'collect_method' => 'required|in:'.$collect_method = implode(",",Sample::COLLECT_METHOD),
             'user_id' => 'required|exists:users,id',
         ];
     }
 
     protected function rulesUpdate()
     {
-        return [
+        return array(
             'sample_date' => 'sometimes|date_format:Y-m-d',
             'gal_requisition' => 'sometimes',
             'name' => 'sometimes|string|max:255',
             'age' => 'sometimes|numeric|between:0,150',
-            'sex' => 'sometimes|in:'.$sex = implode(",",sample::SEX),
+            'sex' => 'sometimes|in:'.$sex = implode(",",Sample::SEX),
             'birth_date' => 'sometimes|date_format:Y-m-d',
             'city' => 'sometimes|string|max:255',
             'residential_city' => 'sometimes|string|max:255',
-            'beginning_symptom_date' => 'sometimes|in:'.$beginning_symptom_date = implode(",",sample::BEGINNING_SYMPTOM_DATE),
+            'beginning_symptom_date' => 'sometimes|in:'.$beginning_symptom_date = implode(",",Sample::BEGINNING_SYMPTOM_DATE),
             'collection_sample_date' => 'sometimes|date_format:Y-m-d',
-            'patient_status' => 'sometimes|in:'.$string = implode(",", sample::PATIENT_STATUS),
-            'collect_method' => 'sometimes|in:'.$collect_method = implode(",",sample::COLLECT_METHOD),
+            'patient_status' => 'sometimes|in:'.$string = implode(",", Sample::PATIENT_STATUS),
+            'collect_method' => 'sometimes|in:'.$collect_method = implode(",",Sample::COLLECT_METHOD),
             'user_id' => 'sometimes|exists:users,id',
-        ];
+        );
     }
 
     protected function findOrFail($id)

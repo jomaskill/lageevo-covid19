@@ -10,4 +10,4 @@ Route::get('/', function () {
 # Route Users
 Route::resource('users', 'UserController');
 # Route Samples
-Route::resource('sample','SampleController');
+Route::resource('samples','SampleController');

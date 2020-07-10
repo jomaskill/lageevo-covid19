@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class sample extends Model
+class Sample extends Model
 {
     use SoftDeletes;
 
@@ -32,7 +32,7 @@ class sample extends Model
     ];
 
     public function users(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class);
     }
 }
 
