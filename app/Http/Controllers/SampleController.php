@@ -73,14 +73,14 @@ class SampleController extends Controller
             'gal_requisition' => 'nullable',
             'name' => 'required|string|max:255',
             'age' => 'required|numeric|between:0,150',
-            'sex' => 'required|in:'.$sex = implode(",",Sample::SEX),
+            'sex' => 'required|in:'.implode(",",Sample::SEX),
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string|max:255',
             'residential_city' => 'required|string|max:255',
-            'beginning_symptom_date' => 'required|in:'.$beginning_symptom_date = implode(",",Sample::BEGINNING_SYMPTOM_DATE),
+            'beginning_symptom_date' => 'required|in:'.implode(",",Sample::BEGINNING_SYMPTOM_DATE),
             'collection_sample_date' => 'required|date_format:Y-m-d',
-            'patient_status' => 'required|in:'.$patient_status = implode(",", Sample::PATIENT_STATUS),
-            'collect_method' => 'required|in:'.$collect_method = implode(",",Sample::COLLECT_METHOD),
+            'patient_status' => 'required|in:'.implode(",", Sample::PATIENT_STATUS),
+            'collect_method' => 'required|in:'.implode(",",Sample::COLLECT_METHOD),
             'user_id' => 'required|exists:users,id',
         ];
     }
