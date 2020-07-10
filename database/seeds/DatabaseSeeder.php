@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Pcr;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,5 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
+        $this->call(PcrSeeder::class);
     }
 }

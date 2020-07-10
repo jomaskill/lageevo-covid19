@@ -9,10 +9,16 @@ class Pcr extends Model
 {
     use SoftDeletes;
 
-    protected $fillabel = [
+    const THERMOCYCLER = ['1','2'];
+
+    protected $fillable = [
         'thermocycler',
         'N1',
         'N2',
         'RP',
     ];
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
 }

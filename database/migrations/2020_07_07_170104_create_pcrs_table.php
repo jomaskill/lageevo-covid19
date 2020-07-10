@@ -15,7 +15,7 @@ class CreatePcrsTable extends Migration
     {
         Schema::create('pcrs', function (Blueprint $table) {
             $table->id();
-            $table->string('thermocycler');
+            $table->enum('thermocycler',['1','2']);
             $table->float('N1');
             $table->float('N2');
             $table->float('RP');

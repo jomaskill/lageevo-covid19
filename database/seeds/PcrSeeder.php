@@ -1,5 +1,6 @@
 <?php
 
+use App\Pcr;
 use Illuminate\Database\Seeder;
 
 class PcrSeeder extends Seeder
@@ -11,6 +12,6 @@ class PcrSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Pcr::class)->create();
     }
 }

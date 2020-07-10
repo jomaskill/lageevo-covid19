@@ -15,7 +15,7 @@ class PcrController extends Controller
      */
     public function index()
     {
-        //
+        return $this->model()::all();
     }
 
     /**
@@ -36,7 +36,8 @@ class PcrController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $this->validate($request, $this->rulesStore());
+        return $this->model()::create($validatedData);
     }
 
     /**
@@ -45,9 +46,9 @@ class PcrController extends Controller
      * @param  \App\Pcr  $pcr
      * @return \Illuminate\Http\Response
      */
-    public function show(Pcr $pcr)
+    public function show($id)
     {
-        //
+        return $this->findOrFail($id);
     }
 
     /**
@@ -56,7 +57,7 @@ class PcrController extends Controller
      * @param  \App\Pcr  $pcr
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pcr $pcr)
+    public function edit($id)
     {
         //
     }
@@ -68,9 +69,19 @@ class PcrController extends Controller
      * @param  \App\Pcr  $pcr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pcr $pcr)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $this->validate($request, $this->rulesUpdate());
+        $dataToBeUpdated = $this->findOrFail($id);
+        $dataToBeUpdated->update($validatedData);
+        return $dataToBeUpdated;
+    }
+
+    protected function findOrFail($id)
+    {
+        $model = $this->model();
+        $keyName = (new $model)->getRouteKeyName();
+        return $this->model()::where($keyName, $id)->firstOrFail();
     }
 
     /**
@@ -79,8 +90,33 @@ class PcrController extends Controller
      * @param  \App\Pcr  $pcr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pcr $pcr)
+    public function destroy($id)
     {
-        //
+        $dataToBeDeleted = $this->findOrFail($id);
+        $dataToBeDeleted->delete();
+        return response()->noContent();
+    }
+
+    protected function rulesStore(){
+        return[
+            'thermocycler' => 'required|in:'.$thermocycler = implode(",",Pcr::THERMOCYCLER),
+            'N1' => 'required|numeric|between:0,100',
+            'N2' => 'required|numeric|between:0,100',
+            'RP' => 'required|numeric|between:0,100',
+        ];
+    }
+
+    protected function rulesUpdate(){
+        return[
+            'thermocycler' => 'sometimes|in:'.$thermocycler = implode(",",Pcr::THERMOCYCLER),
+            'N1' => 'sometimes|numeric|between:0,100',
+            'N2' => 'sometimes|numeric|between:0,100',
+            'RP' => 'sometimes|numeric|between:0,100',
+        ];
+    }
+
+    protected function model()
+    {
+        return Pcr::class;
     }
 }
