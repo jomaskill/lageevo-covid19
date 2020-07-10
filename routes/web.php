@@ -9,4 +9,4 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController');
 
-Route::resource('labSamples', 'LabSampleController');
+Route::resource('lab_samples', 'LabSampleController');
