@@ -1,8 +1,9 @@
 <?php
 
+use App\Sample;
 use Illuminate\Database\Seeder;
 
-class PcrSeeder extends Seeder
+class SampleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,6 @@ class PcrSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Sample::class)->create();
     }
 }
