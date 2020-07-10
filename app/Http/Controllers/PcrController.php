@@ -99,7 +99,7 @@ class PcrController extends Controller
 
     protected function rulesStore(){
         return[
-            'thermocycler' => 'required|in:'.$thermocycler = implode(",",Pcr::THERMOCYCLER),
+            'thermocycler' => 'required|in:'.implode(",",Pcr::THERMOCYCLER),
             'N1' => 'required|numeric|between:0,100',
             'N2' => 'required|numeric|between:0,100',
             'RP' => 'required|numeric|between:0,100',

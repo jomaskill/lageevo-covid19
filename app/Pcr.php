@@ -18,7 +18,8 @@ class Pcr extends Model
         'RP',
     ];
 
-    public function users(){
-        return $this->belongsTo(User::class);
-    }
+    /*
+    public function labsample(){
+        return $this->belongsTo(LabSample::class);
+    }*/
 }
