@@ -9,4 +9,8 @@ Route::get('/', function () {
 
 
 Route::resource('users', 'UserController');
+
+Route::resource('pcrs', 'PcrController');
+
 Route::resource('samples','SampleController');
+
