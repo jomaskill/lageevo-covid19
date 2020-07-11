@@ -101,6 +101,7 @@ class SampleController extends Controller
             'patient_status' => 'sometimes|in:'.$string = implode(",", Sample::PATIENT_STATUS),
             'collect_method' => 'sometimes|in:'.$collect_method = implode(",",Sample::COLLECT_METHOD),
             'user_id' => 'sometimes|exists:users,id',
+            'confirmation' => 'sometimes|boolean',
         );
     }
 
