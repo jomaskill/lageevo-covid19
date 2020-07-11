@@ -14,3 +14,5 @@ Route::resource('pcrs', 'PcrController');
 
 Route::resource('samples','SampleController');
 
+Route::resource('labSamples','LabSampleController');
+
