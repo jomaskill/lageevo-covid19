@@ -17,7 +17,7 @@ class LabSample extends Model
         'observations',
     ];
 
-    protected $status = ['extraction', 'pcr', 'analises', 'report'];
+    const STATUS = ['extraction', 'pcr', 'analises', 'report'];
 
     protected $dates = ['deleted_at'];
 }

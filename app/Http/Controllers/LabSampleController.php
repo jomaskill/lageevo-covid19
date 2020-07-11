@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LabSample;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 
@@ -28,7 +29,7 @@ class LabSampleController extends Controller
     }
 
    
-    public function show(LabSample $labSample)
+    public function show($id)
     {
         return $this->findOrFail($id);
     }
@@ -76,20 +77,15 @@ class LabSampleController extends Controller
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string',
             'observations' => 'required|string',
-            'status' => [
-                'required|',
-                Rule::in('status'),
-            ]
+            'status' => 'required|in:'.$status = implode(",",LabSample::STATUS)
+            
         ];
     }
 
     protected function rulesUpdate()
     {
         return [
-            'status' => [
-                'required|',
-                Rule::in('status'),
-            ]
+            'status' => 'sometimes|in:'.$status = implode(",",LabSample::STATUS)
         ];
     }
 
