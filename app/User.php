@@ -25,4 +25,9 @@ class User extends Authenticatable
         return $this->hasOne(Pcr::class);
     }*/
 
+    public function samples()
+    {
+        return $this->hasMany(Sample::class);
+    }
+
 }
