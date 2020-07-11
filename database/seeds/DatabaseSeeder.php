@@ -1,11 +1,10 @@
 <?php
 
 use App\User;
-<<<<<<< HEAD
+
 use App\Pcr;
-=======
+
 use App\LabSample;
->>>>>>> develop
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,15 +14,14 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         $this->call(UsersTableSeeder::class);
-<<<<<<< HEAD
+
         $this->call(PcrSeeder::class);
-=======
 
         $this->call(SampleSeeder::class);
 
->>>>>>> develop
     }
 }
