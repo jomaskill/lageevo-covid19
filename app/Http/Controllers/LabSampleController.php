@@ -77,7 +77,7 @@ class LabSampleController extends Controller
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string',
             'observations' => 'required|string',
-            'status' => 'required|in:'.$status = implode(",",LabSample::STATUS)
+            'status' => 'required|in:'.implode(",",LabSample::STATUS)
             
         ];
     }
@@ -85,7 +85,7 @@ class LabSampleController extends Controller
     protected function rulesUpdate()
     {
         return [
-            'status' => 'sometimes|in:'.$status = implode(",",LabSample::STATUS)
+            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS)
         ];
     }
 
