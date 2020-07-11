@@ -5,6 +5,8 @@ use App\User;
 use App\Pcr;
 
 use App\LabSample;
+
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PcrSeeder::class);
 
         $this->call(SampleSeeder::class);
+
+        $this->call(LabSampleSeeder::class);
 
     }
 }
