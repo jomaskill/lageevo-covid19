@@ -29,5 +29,6 @@ $factory->define(Sample::class, function (Faker $faker) {
         'patient_status' => $patient_status[rand(0,2)],
         'collect_method' => $collect_method[rand(0,5)],
         'user_id' => User::all()->random()->id,
+        'confirmation' => $faker->boolean,
     );
 });

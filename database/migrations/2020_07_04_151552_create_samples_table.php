@@ -27,6 +27,7 @@ class CreateSamplesTable extends Migration
                 $table->enum('collect_method', ['swab_nasofaringe', 'swab_orofaringe', 'lavado_bronmcoalveolar', 'saliva', 'aspirado_traqueal', 'post_mortem']);
                 $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users');
+                $table->boolean('confirmation')->default(false);
                 $table->timestamps();
                 $table->softDeletes();
             });

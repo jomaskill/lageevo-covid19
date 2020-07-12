@@ -29,6 +29,7 @@ class Sample extends Model
         'patient_status',
         'collect_method',
         'user_id',
+        'confirmation',
     ];
 
     public function users()
