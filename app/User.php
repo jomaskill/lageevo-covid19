@@ -20,12 +20,8 @@ class User extends Authenticatable
 
     protected $dates = ['deleted_at'];
 
-    /*
-    public function Pcr(){
-        return $this->hasOne(Pcr::class);
-    }*/
 
-    public function samples()
+    public function sample()
     {
         return $this->hasMany(Sample::class);
     }

@@ -20,4 +20,14 @@ class LabSample extends Model
     const STATUS = ['extraction', 'pcr', 'analises', 'report'];
 
     protected $dates = ['deleted_at'];
+
+    public function sample()
+    {
+        return $this->belongsTo(Sample::class);
+    }
+
+    public function Pcr()
+    {
+        return $this->hasOne(Pcr::class);
+    }
 }

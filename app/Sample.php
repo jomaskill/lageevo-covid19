@@ -35,6 +35,11 @@ class Sample extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function LabSample()
+    {
+        return $this->hasOne(LabSample::class);
+    }
 }
 
 

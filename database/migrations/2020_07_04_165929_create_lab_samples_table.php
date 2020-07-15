@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLabSamplesTable extends Migration
 {
-    
+
     public function up()
     {
         Schema::create('lab_samples', function (Blueprint $table) {
@@ -15,13 +15,16 @@ class CreateLabSamplesTable extends Migration
             $table->date('birth_date');
             $table->string('city');
             $table->text('observations');
+            $table->unsignedBigInteger('sample_id');
+            $table->foreign('sample_id')->references('id')->on('samples');
             $table->enum('status',['extraction', 'pcr', 'analises', 'report']);
             $table->timestamps();
             $table->softDeletes();
         });
+
     }
 
-    
+
     public function down()
     {
         Schema::dropIfExists('lab_samples');

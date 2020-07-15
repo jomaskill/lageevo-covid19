@@ -9,32 +9,32 @@ use Illuminate\Http\Request;
 
 class LabSampleController extends Controller
 {
-    
+
     public function index()
     {
         return $this->model()::all();
     }
 
-    
+
     public function create()
     {
         ////Essa é a rota de Samples
     }
 
-    
+
     public function store(Request $request)
     {
         $validatedData = $this->validate($request, $this->rulesStore());
         return $this->model()::create($validatedData);
     }
 
-   
+
     public function show($id)
     {
         return $this->findOrFail($id);
     }
 
-   
+
     public function edit(LabSample $labSample)
     {
         //
@@ -48,7 +48,7 @@ class LabSampleController extends Controller
         return $this->model()::where($keyName, $id)->firstOrFail();
     }
 
-    
+
     public function update(Request $request, $id)
     {
 
@@ -61,7 +61,7 @@ class LabSampleController extends Controller
         return $dataToBeUpdated;
     }
 
-    
+
     public function destroy($id)
     {
         $dataToBeDeleted = $this->findOrFail($id);
@@ -78,14 +78,13 @@ class LabSampleController extends Controller
             'city' => 'required|string',
             'observations' => 'required|string',
             'status' => 'required|in:'.implode(",",LabSample::STATUS)
-            
         ];
     }
 
     protected function rulesUpdate()
     {
         return [
-            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS)
+            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS),
         ];
     }
 
