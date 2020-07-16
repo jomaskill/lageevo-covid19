@@ -111,7 +111,7 @@ class PcrController extends Controller
             'thermocycler' => 'sometimes|in:'.$thermocycler = implode(",",Pcr::THERMOCYCLER),
             'N1' => 'sometimes|numeric|between:0,45',
             'N2' => 'sometimes|numeric|between:0,45',
-            'RP' => 'sometimes|numeric|between:0,45',
+            'RP' => 'sometimes|numeric|between:0,45git ',
         ];
     }
 

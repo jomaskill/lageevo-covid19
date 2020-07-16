@@ -29,6 +29,6 @@ $factory->define(Sample::class, function (Faker $faker) use ($factory){
         'collection_sample_date' => $faker->date(),
         'patient_status' => $patient_status[rand(0,2)],
         'collect_method' => $collect_method[rand(0,5)],
-        'user_id' => $factory -> create(User::class),
+        'user_id' => $factory -> create(User::class)->id,
     );
 });

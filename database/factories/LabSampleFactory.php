@@ -17,6 +17,6 @@ $factory->define(LabSample::class, function (Faker $faker) use ($factory) {
         'city' => $faker -> city,
         'observations' => $faker -> randomDigit,
         'status' => $status[rand(0,3)],
-        'sample_id' => $factory -> create(Sample::class),
+        'sample_id' => $factory -> create(Sample::class)->id,
     ];
 });

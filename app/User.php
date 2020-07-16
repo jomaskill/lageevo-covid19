@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
 
-    public function sample()
+    public function samples()
     {
         return $this->hasMany(Sample::class);
     }
