@@ -9,7 +9,6 @@ class LabSample extends Model
 {
     use SoftDeletes;
 
-
     protected $fillable = [
         'name',
         'birth_date',
