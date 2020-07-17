@@ -19,6 +19,8 @@ class CreatePcrsTable extends Migration
             $table->float('N1');
             $table->float('N2');
             $table->float('RP');
+            $table->unsignedBigInteger('labSample_id');
+            $table->foreign('labSample_id')->references('id')->on('lab_samples');
             $table->timestamps();
             $table->softDeletes();
         });

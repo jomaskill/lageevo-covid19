@@ -9,8 +9,7 @@ class CreateSamplesTable extends Migration
 
     public function up()
     {
-        Schema::create('samples',
-            function (Blueprint $table) {
+        Schema::create('samples', function (Blueprint $table) {
                 $table->id();
                 $table->string('email')->unique();
                 $table->date('sample_date');

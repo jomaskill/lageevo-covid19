@@ -100,18 +100,18 @@ class PcrController extends Controller
     protected function rulesStore(){
         return[
             'thermocycler' => 'required|in:'.implode(",",Pcr::THERMOCYCLER),
-            'N1' => 'required|numeric|between:0,100',
-            'N2' => 'required|numeric|between:0,100',
-            'RP' => 'required|numeric|between:0,100',
+            'N1' => 'required|numeric|between:0,45',
+            'N2' => 'required|numeric|between:0,45',
+            'RP' => 'required|numeric|between:0,45',
         ];
     }
 
     protected function rulesUpdate(){
         return[
             'thermocycler' => 'sometimes|in:'.$thermocycler = implode(",",Pcr::THERMOCYCLER),
-            'N1' => 'sometimes|numeric|between:0,100',
-            'N2' => 'sometimes|numeric|between:0,100',
-            'RP' => 'sometimes|numeric|between:0,100',
+            'N1' => 'sometimes|numeric|between:0,45',
+            'N2' => 'sometimes|numeric|between:0,45',
+            'RP' => 'sometimes|numeric|between:0,45git ',
         ];
     }
 

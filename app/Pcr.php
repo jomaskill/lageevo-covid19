@@ -16,10 +16,12 @@ class Pcr extends Model
         'N1',
         'N2',
         'RP',
+        'labSample_id'
     ];
 
-    /*
-    public function labsample(){
+
+    public function LabSample()
+    {
         return $this->belongsTo(LabSample::class);
-    }*/
+    }
 }

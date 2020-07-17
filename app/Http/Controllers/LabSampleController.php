@@ -85,7 +85,7 @@ class LabSampleController extends Controller
     protected function rulesUpdate()
     {
         return [
-            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS)
+            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS),
         ];
     }
 
