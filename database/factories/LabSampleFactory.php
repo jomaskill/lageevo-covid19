@@ -10,7 +10,7 @@ $factory->define(LabSample::class, function (Faker $faker) {
     $status = ['extraction', 'pcr', 'analises', 'report'];
 
     return [
-        
+
         'name' => $faker -> name,
         'birth_date' => $faker -> date(),
         'city' => $faker -> city,
