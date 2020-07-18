@@ -16,6 +16,7 @@ class CreateLabSamplesTable extends Migration
             $table->string('city');
             $table->text('observations');
             $table->enum('status',['extraction', 'pcr', 'analises', 'report'])->default('extraction');
+            $table->integer('sample_id');
             $table->timestamps();
             $table->softDeletes();
         });
