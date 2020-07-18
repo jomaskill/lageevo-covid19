@@ -17,7 +17,6 @@ class ScreeningController extends Controller
         ->where('confirmation', 0)
         ->get();
 
-        return $sampleFilter;
 
     }
 
