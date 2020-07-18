@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('screening/{residential_city}','ScreeningController@show');
 
 Route::resource('users', 'UserController');
 
