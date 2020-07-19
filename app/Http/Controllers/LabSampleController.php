@@ -77,7 +77,8 @@ class LabSampleController extends Controller
             'birth_date' => 'required|date_format:Y-m-d',
             'city' => 'required|string',
             'observations' => 'required|string',
-            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS)
+            'status' => 'sometimes|in:'.implode(",",LabSample::STATUS),
+            'sample_id' => 'required|exists:samples,id'
 
         ];
     }
