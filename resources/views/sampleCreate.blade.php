@@ -8,7 +8,6 @@
             </h3>
             <h6 class="col-sm-10">
                 <p></p>
-                <p>Formulário de envio de amostras</p>
                 <p>Prezado(a) agente de saúde, favor preencher os dados abaixo para nos deixar preparados para receber seu material. Não há necessidade de levar impresso.</p>
                 <p>Preencha com cuidado pois o laudo será elaborado conforme as informações deste formulário.</p>
                 <p>Por gentileza, procure preencher os dados na data da coleta da amostra, antes de encaminhá-las para o laboratório. O laboratório irá receber amostras de segunda à sexta-feira, entre 14h30 e 16h30, e aos sábados entre 11h e meio-dia.</p>
@@ -16,7 +15,7 @@
                 <p>NUNCA DOBREM OS SWABS! SEMPRE CORTAR COM TESOURA ESTERILIZADA.</p>
                 <p>Quaisquer dúvidas entre em contato:</p>
                 <p>
-                    <a href="diagnosticosmoleculares@ufv.br">diagnosticosmoleculares@ufv.br</a>
+                    <a href="#">diagnosticosmoleculares@ufv.br</a>
                 </p>
                 <p>(34) 3855-9553</p>
             </h6>
