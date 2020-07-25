@@ -9,9 +9,9 @@ class Sample extends Model
 {
     use SoftDeletes;
 
-    const BEGINNING_SYMPTOM_DATE = ['ate_3','4_a_6','7_a_9','10','10+','assintomatico'];
+    const BEGINNING_SYMPTOM_DATE = ['ate_3','4_a_6','7_a_9','10+','assintomatico'];
     const PATIENT_STATUS = ['liberado','hospitalizado','obito'];
-    const COLLECT_METHOD = ['swab_nasofaringe','swab_orofaringe','lavado_bronmcoalveolar','saliva','aspirado_traqueal','post_mortem'];
+    const COLLECT_METHOD = ['swab_nasofaringe','swab_orofaringe','lavado_broncoalveolar','saliva','aspirado_traqueal','post_mortem'];
     const SEX = ['M', 'F', 'T'];
 
     protected $fillable = [
