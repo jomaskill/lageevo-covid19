@@ -29,20 +29,23 @@
             </ul>
         @endif
 
-        <form action="{{route('samples.store')}}" method="post">
+        <form action="{{route('samples.store')}}" method="post" data-toggle="validator">
+
             <!--Email-->
             <div class="form-group">
                 <label for="email" class="col-sm-2 col-form-label .col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input placeholder="Email" type="email" class="form-control" id="email" name="email" value="{{old('email',null)}}" >
+                    <input placeholder="Email" type="email" class="form-control" id="email" name="email" value="{{old('email',null)}}" required>
                 </div>
+
             </div>
+
 
             <!--Date_Sample-->
             <div class="form-group">
                 <div class="form md-outline input-with-post-icon datepicker col-sm-10">
                     <label for="sample_date">Data de envio das amostras</label>
-                    <input placeholder="Select date" type="date" class="form-control" id="sample_date" name="sample_date" value="{{old('sample_date',null)}}">
+                    <input placeholder="Select date" type="date" class="form-control" id="sample_date" name="sample_date" value="{{old('sample_date',null)}}" required>
                     <i class="fas fa-calendar input-prefix" tabindex=0></i>
                 </div>
             </div>
@@ -61,7 +64,7 @@
             <div class="form-group col-sm-10">
                 <label for="name">Nome do paciente</label>
                 <div>
-                    <input placeholder="Nome" type="text" class="form-control" id="name" name="name" value="{{old('name',null)}}">
+                    <input placeholder="Nome" type="text" class="form-control" id="name" name="name" value="{{old('name',null)}}" required>
                 </div>
             </div>
 
@@ -70,14 +73,14 @@
             <div class="form-group">
                 <label for="age" class="col-sm-2 col-form-label">Idade</label>
                 <div class="col-sm-10">
-                    <input placeholder="Idade" type="number" class="form-control" id="age" name="age" value="{{old('age',null)}}">
+                    <input placeholder="Idade" type="number" class="form-control" id="age" name="age" value="{{old('age',null)}}" required>
                 </div>
             </div>
 
             <!--Sex-->
             <div class="form-group col-sm-10">
                 <label for="sex">Sexo</label>
-                <select class="form-control" id="sex" name="sex">
+                <select class="form-control" id="sex" name="sex" required>
                     <option value="">Selecione uma opção</option>
                     <option value="M" @if (old('sex') == 'M') selected="selected" @endif>Masculino</option>
                     <option value="F" @if (old('sex') == 'F') selected="selected" @endif>Feminino</option>
@@ -89,7 +92,7 @@
             <div class="form-group">
                 <div class="form md-outline input-with-post-icon datepicker col-sm-10">
                     <label for="birth_date">Data de nascimento</label>
-                    <input placeholder="Select date" type="date" class="form-control" id="birth_date" name="birth_date" value="{{old('birth_date',null)}}">
+                    <input placeholder="Select date" type="date" class="form-control" id="birth_date" name="birth_date" value="{{old('birth_date',null)}}" required>
                     <i class="fas fa-calendar input-prefix" tabindex=0></i>
                 </div>
             </div>
@@ -98,7 +101,7 @@
             <!--City-->
             <div class="form-group col-sm-10">
                 <label for="city">Município da notificação</label>
-                <select class="form-control" id="city" name="city">
+                <select class="form-control" id="city" name="city" required>
                     <option>Selecione um município</option>
                     @foreach(\App\Http\Resources\CityList::CITY as $city)
                         <option value="{{$city}}") @if(old('city') == $city) selected="selected" @endif>{{$city}}</option>
@@ -109,7 +112,7 @@
             <!--Residential_City-->
             <div class="form-group col-sm-10">
                 <label for="residential_city">Município de residência do paciente</label>
-                <select class="form-control" id="residential_city" name="residential_city">
+                <select class="form-control" id="residential_city" name="residential_city" required>
                     <option>Selecione um município</option>
                     @foreach(\App\Http\Resources\CityList::CITY as $city)
                         <option value="{{$city}}") @if(old('residential_city') == $city) selected="selected" @endif>{{$city}}</option>
@@ -121,7 +124,7 @@
 
             <div class="form-group col-sm-10">
                 <label for="beginning_symptom_date">Tempo desde início dos sintomas</label>
-                <select class="form-control" id="beginning_symptom_date" name="beginning_symptom_date">
+                <select class="form-control" id="beginning_symptom_date" name="beginning_symptom_date" required>
                     <option value="">Selecione uma opção</option>
                     <option value="ate_3" @if (old('beginning_symptom_date') == 'ate_3') selected="selected" @endif>Até 3 dias</option>
                     <option value="4_a_6" @if (old('beginning_symptom_date') == '4_a_6') selected="selected" @endif>4 a 6 dias</option>
@@ -135,7 +138,7 @@
             <div class="form-group">
                 <div class="form md-outline input-with-post-icon datepicker col-sm-10">
                     <label for="collection_sample_date">Data de coleta amostra</label>
-                    <input placeholder="Select date" type="date" class="form-control" id="collection_sample_date" name="collection_sample_date" value="{{old('collection_sample_date',null)}}">
+                    <input placeholder="Select date" type="date" class="form-control" id="collection_sample_date" name="collection_sample_date" value="{{old('collection_sample_date',null)}}" required>
                     <i class="fas fa-calendar input-prefix" tabindex=0></i>
                 </div>
             </div>
@@ -144,7 +147,7 @@
 
             <div class="form-group col-sm-10">
                 <label for="patient_status">Situação do paciente</label>
-                <select class="form-control" id="patient_status" name="patient_status">
+                <select class="form-control" id="patient_status" name="patient_status" required>
                     <option value ="">Selecione uma opção</option>
                     <option value="liberado" @if (old('patient_status') == 'liberado') selected="selected" @endif>Liberado</option>
                     <option value="hospitalizado" @if (old('patient_status') == 'hospitalizado') selected="selected" @endif>Hospitalizado</option>
@@ -152,47 +155,17 @@
                 </select>
             </div>
 
-
             <div class="form-group col-sm-10">
-                <div>Método de coleta</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="swab_nasofaringe" @if(is_array(old('collect_method')) && in_array("swab_nasofaringe", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck1">
-                            Swab Nasofaringe
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="swab_orofaringe" @if(is_array(old('collect_method')) && in_array("swab_orofaringe", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck2">
-                            Swab Orofaringe
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="lavado_broncoalveolar" @if(is_array(old('collect_method')) && in_array("lavado_broncoalveolar", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck3">
-                            Lavado Broncoalveolar
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="saliva" @if(is_array(old('collect_method')) && in_array("saliva", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck4">
-                            Saliva ou escarro
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="aspirado_traqueal" @if(is_array(old('collect_method')) && in_array("aspirado_traqueal", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck5">
-                            Aspirado traqueal
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="collect_method" name="collect_method" value="post_mortem" @if(is_array(old('collect_method')) && in_array("post_mortem", old('gridCheck'))) checked @endif>
-                        <label class="form-check-label" for="gridCheck6">
-                            Coleta "post-mortem"
-                        </label>
-                    </div>
-                </div>
+                <label for="beginning_symptom_date">Método de coleta</label>
+                <select class="form-control" id="collect_method" name="collect_method" required>
+                    <option value="">Selecione uma opção</option>
+                    <option value="swab_nasofaringe" @if (old('collect_method') == 'swab_nasofaringe') selected="selected" @endif>Swab Nasofaringe</option>
+                    <option value="swab_orofaringe" @if (old('collect_method') == 'swab_orofaringe') selected="selected" @endif>Swab Orofaringe</option>
+                    <option value="lavado_broncoalveolar" @if (old('collect_method') == 'lavado_broncoalveolar') selected="selected" @endif>Lavado Broncoalveolar</option>
+                    <option value="saliva" @if (old('collect_method') == 'saliva') selected="selected" @endif>Saliva ou escarro</option>
+                    <option value="aspirado_traqueal" @if (old('collect_method') == 'aspirado_traqueal') selected="selected" @endif>Aspirado traqueal</option>
+                    <option value="post_mortem" @if (old('collect_method') == 'post_mortem') selected="selected" @endif>Coleta "post-mortem"</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -202,6 +175,5 @@
             </div>
         </form>
     </div>
-
 
 @endsection
