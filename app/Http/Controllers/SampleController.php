@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class SampleController extends Controller
 {
@@ -39,10 +41,8 @@ class SampleController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
-    {
-        //return $request;
-
+    public function update(Request $request, $id){    
+        
         $validatedData = $this->validate($request, $this->rulesUpdate());
 
         $dataToBeUpdated = $this->findOrFail($id);
@@ -50,6 +50,7 @@ class SampleController extends Controller
         $dataToBeUpdated->update($validatedData);
 
         return $dataToBeUpdated;
+        
     }
 
     public function destroy($id)

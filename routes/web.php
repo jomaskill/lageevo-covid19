@@ -8,6 +8,10 @@ Route::get('/', function () {
 });
 
 
+Route::get('screenings', 'ScreeningController@index')->name('screening');
+Route::get('screenings/{city}', 'ScreeningController@show')->name('screeningCity');
+Route::post('screenings', 'ScreeningController@createLabSample')->name('screeningCreateLabSample');
+
 Route::resource('users', 'UserController');
 
 Route::resource('pcrs', 'PcrController');

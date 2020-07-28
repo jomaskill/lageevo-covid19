@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\LabSample;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 class LabSampleController extends Controller
@@ -22,9 +23,9 @@ class LabSampleController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($data)
     {
-        $validatedData = $this->validate($request, $this->rulesStore());
+        $validatedData = Validator::make($data, $this->rulesStore())->validate();
         return $this->model()::create($validatedData);
     }
 
@@ -66,7 +67,6 @@ class LabSampleController extends Controller
     {
         $dataToBeDeleted = $this->findOrFail($id);
         $dataToBeDeleted->delete();
-
         return response()->noContent();
     }
 
