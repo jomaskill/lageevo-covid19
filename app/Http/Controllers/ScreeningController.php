@@ -42,9 +42,8 @@ class ScreeningController extends Controller
             $data['sample_id'] = $sample->id;
             $data['status'] = 'extraction';
     
-            var_dump($s);
-            // (new LabSampleController)->store($data);
-            // $sample->update(['confirmation' => 1]);
+            (new LabSampleController)->store($data);
+            $sample->update(['confirmation' => 1]);
         }
     }
 
