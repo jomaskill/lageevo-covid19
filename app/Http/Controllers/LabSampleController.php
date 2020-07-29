@@ -52,14 +52,15 @@ class LabSampleController extends Controller
 
     public function update(Request $request, $id)
     {
+        var_dump($request);
 
-        $validatedData = $this->validate($request, $this->rulesUpdate());
+        // $validatedData = $this->validate($request, $this->rulesUpdate());
 
-        $dataToBeUpdated = $this->findOrFail($id);
+        // $dataToBeUpdated = $this->findOrFail($id);
 
-        $dataToBeUpdated->update($validatedData);
+        // $dataToBeUpdated->update($validatedData);
 
-        return $dataToBeUpdated;
+        // return $dataToBeUpdated;
     }
 
 

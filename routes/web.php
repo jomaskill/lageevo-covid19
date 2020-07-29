@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('sampleCreate');
 });
 
+Route::get('extractions', 'ExtractionController@index')->name('extraction');
+Route::post('extractions', 'ExtractionController@pcr')->name('extractionUpdatePcr');
+
 
 Route::get('screenings', 'ScreeningController@index')->name('screening');
 Route::get('screenings/{city}', 'ScreeningController@show')->name('screeningCity');
