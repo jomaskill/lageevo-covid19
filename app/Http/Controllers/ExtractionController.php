@@ -21,8 +21,7 @@ class ExtractionController extends Controller
         foreach ($request->all() as $s){
 
             $labSample = LabSample::find($s['id']);
-            var_dump($labSample);
-            // $labSample->update(['status' => 'pcr']);
+            $labSample->update(['status' => 'pcr']);
         }
 
 
