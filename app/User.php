@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
+    const TYPES = ['admin' => 1, 'employee' => 2, 'secretary' => 3];
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -24,6 +26,11 @@ class User extends Authenticatable
     public function samples()
     {
         return $this->hasMany(Sample::class);
+    }
+
+    public function userType()
+    {
+        $this->belongsTo(UserType::class);
     }
 
 }

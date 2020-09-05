@@ -7,6 +7,7 @@ use App\Pcr;
 use App\LabSample;
 
 
+use App\UserType;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,13 +20,15 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+        $this->call(UserTypesSeeder::class);
+//        $this->call(UsersTableSeeder::class);
+//
+//        $this->call(PcrSeeder::class);
+//
+//        $this->call(SampleSeeder::class);
+//
+//        $this->call(LabSampleSeeder::class);
 
-        $this->call(PcrSeeder::class);
-
-        $this->call(SampleSeeder::class);
-
-        $this->call(LabSampleSeeder::class);
 
     }
 }
