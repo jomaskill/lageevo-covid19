@@ -25,6 +25,7 @@ class Sample extends Model
     {
         return $this->hasOne(LabSample::class);
     }
+
 }
 
 
