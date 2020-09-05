@@ -12,6 +12,6 @@ class SampleSeeder extends Seeder
      */
     public function run()
     {
-        factory(Sample::class)->create();
+        factory(Sample::class,50)->create();
     }
 }

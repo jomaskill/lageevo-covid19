@@ -13,7 +13,7 @@ class SampleController extends Controller
 
     public function index()
     {
-        return $this->model()::all();
+        return view('sampleShow', Sample::all());
     }
 
 
@@ -36,7 +36,7 @@ class SampleController extends Controller
 
     public function edit(Sample $sample)
     {
-        //
+        return view('sampleCreate', $sample);
     }
 
     public function update(Request $request, $id)
@@ -82,6 +82,7 @@ class SampleController extends Controller
             'patient_status' => 'required|in:'.implode(",", Sample::PATIENT_STATUS),
             'collect_method' => 'required|in:'.implode(",",Sample::COLLECT_METHOD),
             'user_id' => 'required|exists:users,id',
+            'confirmation' =>  'required|boolean'
         ];
     }
 

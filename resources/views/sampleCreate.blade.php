@@ -168,7 +168,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="text-center">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>

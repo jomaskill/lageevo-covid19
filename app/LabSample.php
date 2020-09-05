@@ -14,7 +14,7 @@ class LabSample extends Model
         'birth_date',
         'city',
         'observations',
-        'sample_id',
+        'sample_id'
     ];
 
     const STATUS = ['extraction', 'pcr', 'analises', 'report'];

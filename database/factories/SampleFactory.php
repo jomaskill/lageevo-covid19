@@ -11,7 +11,7 @@ use App\User;
 $factory->define(Sample::class, function (Faker $faker) use ($factory){
     $beginning_symptom_date = ['ate_3','4_a_6','7_a_9','10+','assintomatico'];
     $patient_status = ['liberado','hospitalizado','obito'];
-    $collect_method = ['swab_nasofaringe','swab_orofaringe','lavado_bronmcoalveolar','saliva','aspirado_traqueal','post_mortem'];
+    $collect_method = ['swab_nasofaringe','swab_orofaringe','lavado_broncoalveolar','saliva','aspirado_traqueal','post_mortem'];
     $sex = ['M','F','T'];
 
     /** @var TYPE_NAME $factory */
@@ -30,6 +30,6 @@ $factory->define(Sample::class, function (Faker $faker) use ($factory){
         'patient_status' => $patient_status[rand(0,2)],
         'collect_method' => $collect_method[rand(0,5)],
         'user_id' => $factory->create(User::class)->id,
-        'confirmation' => $faker->boolean,
+        'confirmation' => 0
     );
 });
