@@ -23,14 +23,19 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
 
-    public function samples()
-    {
-        return $this->hasMany(Sample::class);
-    }
-
     public function userType()
     {
         $this->belongsTo(UserType::class);
+    }
+
+    public function lageevoUser()
+    {
+        return $this->hasOne(LageevoUsers::class);
+    }
+
+    public function secretary()
+    {
+        return $this->hasOne(Secretary::class);
     }
 
 }

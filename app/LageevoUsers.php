@@ -5,14 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserType extends Model
+class LageevoUsers extends Model
 {
+
     use SoftDeletes;
 
     protected $guarded = [];
 
-    public function users()
+    public function user()
     {
-        $this->hasMany(User::class);
+        $this->belongsTo(User::class);
     }
 }

@@ -24,9 +24,10 @@ class CreateSamplesTable extends Migration
                 $table->date('collection_sample_date');
                 $table->enum('patient_status', ['liberado', 'hospitalizado', 'obito']);
                 $table->enum('collect_method', ['swab_nasofaringe', 'swab_orofaringe', 'lavado_broncoalveolar', 'saliva', 'aspirado_traqueal', 'post_mortem']);
-                $table->unsignedBigInteger('user_id');
-                $table->foreign('user_id')->references('id')->on('users');
                 $table->boolean('confirmation')->default(false);
+                $table->unsignedBigInteger('secretary_id');
+                $table->foreign('secretary_id')->references('id')->on('secretaries');
+
                 $table->timestamps();
                 $table->softDeletes();
             });

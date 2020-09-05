@@ -14,27 +14,11 @@ class Sample extends Model
     const COLLECT_METHOD = ['swab_nasofaringe','swab_orofaringe','lavado_broncoalveolar','saliva','aspirado_traqueal','post_mortem'];
     const SEX = ['M', 'F', 'T'];
 
-    protected $fillable = [
-        'email',
-        'sample_date',
-        'gal_requisition',
-        'name',
-        'age',
-        'sex',
-        'birth_date',
-        'city',
-        'residential_city',
-        'beginning_symptom_date',
-        'collection_sample_date',
-        'patient_status',
-        'collect_method',
-        'user_id',
-        'confirmation',
-    ];
+    protected $guarded = [];
 
-    public function users()
+    public function secetary()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Secretary::class);
     }
 
     public function LabSample()
